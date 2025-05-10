@@ -14,7 +14,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home/process/{dataQr}', [gatePassController::class, 'processScan']);
 Route::get('/home/successScan/{dataQr}', [gatePassController::class, 'successScan']);
 Route::get('/home/logScan', [gatePassController::class, 'logScan']);
+
 Route::get('/regKendaraan', [regKendaraanController::class, 'regKendaraan'])->name('regKendaraan');
+Route::get('/regKendaraan/getNumberQr/{kode}', [regKendaraanController::class, 'getNumberQr']);
 Route::post('/regKendaraan/posRegKendaraan', [regKendaraanController::class, 'posRegKendaraan']);
 
 Route::get('/listKendaraan', [regKendaraanController::class, 'listKendaraan'])->name('listKendaraan');

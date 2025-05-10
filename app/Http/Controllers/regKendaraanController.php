@@ -12,6 +12,24 @@ class regKendaraanController extends Controller
         return view('mainRegistrasi');
     }
 
+    public function getNumberQr($kode){
+        $countKode = DB::table('m_personalia')
+            ->where('kodeKendaraan',$kode)
+            ->count();
+
+        if ($countKode == '0') {
+            $number = 1;
+        }
+        else {
+            $number = $countKode + 1;
+        }
+        $numberQrCode = $kode."".sprintf("%03d", $number);
+        return response()->json([
+            'qrCode' =>$numberQrCode,
+        ]); 
+        return response()->json(['error' => 'Product not found'], 404);
+    }
+
     public function posRegKendaraan (Request $reqRegis){
         // $reqRegis->validate([
         //     'fotoKendaraan' => 'required|image|mimes:jpeg,png,jpg,gif|max:20048',
