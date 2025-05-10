@@ -30,7 +30,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Barcode</th>
+                                    <th>No. QR</th>
                                     <th>Kode</th>
                                     <th>No.Pol.</th>
                                     <th>Kendaraan</th>
