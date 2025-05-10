@@ -123,8 +123,8 @@
                         alertify
                         .alert(data.success, function(){
                             alertify.message('OK');
+                            window.location.reload();
                         }).set({title:"Notif"});
-                        window.location.reload();
                     }
                 }
             });
