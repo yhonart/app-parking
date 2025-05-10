@@ -124,6 +124,7 @@
                         .alert(data.success, function(){
                             alertify.message('OK');
                         }).set({title:"Notif"});
+                        window.location.reload();
                     }
                 }
             });
