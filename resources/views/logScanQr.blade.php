@@ -47,7 +47,7 @@
                         </table>
                     </div>
                     <div class="card-footer">
-                        <a href="{{route('home')}}" class="btn btn-primary btn-sm elevation-2">Kembali</a>
+                        <a href="{{ url('/') }}" class="btn btn-primary btn-sm">Kembali</a>
                     </div>
                 </div>
             </div>
