@@ -65,12 +65,12 @@
                                 <div class="col-md-4">
                                     <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoKendaraan}}}}" alt="" srcset="">
                                     <br>
-                                    <button class="btn btn-danger btn-sm" id="deleteKendaraan" data-id="{{$dataID}}">Hapus Kendaraan</button>
+                                    <button class="btn btn-danger btn-sm" id="deleteKendaraan" data-id="{{$editKendaraan->dataID}}">Hapus Kendaraan</button>
                                 </div>
                                 <div class="col-md-4">
                                     <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoPemilik}}}}" alt="" srcset="">
                                     <br>
-                                    <button class="btn btn-danger btn-sm" id="deletePemilik" data-id="{{$dataID}}">Hapus Foto Pemilik</button>
+                                    <button class="btn btn-danger btn-sm" id="deletePemilik" data-id="{{$editKendaraan->dataID}}">Hapus Foto Pemilik</button>
                                 </div>
                             </div>
                         @else
