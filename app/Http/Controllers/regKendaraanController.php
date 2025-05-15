@@ -147,7 +147,7 @@ class regKendaraanController extends Controller
             DB::table('m_personalia')
                 ->where('dataID',$dataID)
                 ->update([
-                    'fotoKendaraan',$getNameKendaraan
+                    'fotoKendaraan'=>$getNameKendaraan
                 ]);
         }
     }
@@ -177,7 +177,7 @@ class regKendaraanController extends Controller
             DB::table('m_personalia')
                 ->where('dataID',$dataID)
                 ->update([
-                    'fotoPemilik',$getNamaPemilik
+                    'fotoPemilik'=>$getNamaPemilik
                 ]);
         }
     }
