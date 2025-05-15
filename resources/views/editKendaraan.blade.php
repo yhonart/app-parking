@@ -159,7 +159,7 @@
             });
             return false;
         });        
-        $("form#formUploadUpload").submit(function(event){
+        $("form#formUploadPemilik").submit(function(event){
             event.preventDefault();
             $("#btnEditDataKendaraan").fadeOut("slow");
              $.ajax({
