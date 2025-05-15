@@ -67,7 +67,7 @@
                                 <hr>
                                 <button class="btn btn-danger btn-sm" id="deleteKendaraan" data-id="{{$editKendaraan->dataID}}">Hapus Kendaraan</button>
                             </div>
-                            else
+                            @else
                             <div class="col-md-4">
                                 <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
                             </div>
@@ -80,7 +80,9 @@
                                     <button class="btn btn-danger btn-sm" id="deletePemilik" data-id="{{$editKendaraan->dataID}}">Hapus Foto Pemilik</button>
                                 </div>
                             @else
+                            <div class="col-md-4">
                                 <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
+                            </div>
                             @endif
                         </div>
                     </div>
