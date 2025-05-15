@@ -122,4 +122,62 @@ class regKendaraanController extends Controller
                 'fotoPemilik'=>''
             ]);
     }
+
+    public function uploadKendaraan (Request $reqFileUpload){
+        $dataID = $reqFileUpload->dataID;
+        $fileUpload = $reqFileUpload->fileName;
+        $codeID = DB::table('m_personalia')
+            ->select('barcode')
+            ->where('dataID',$dataID)
+            ->first();
+        $barcode = $codeID->barcode;
+
+        if ($fileUpload <> "") {
+            $getNameKendaraan = $fileUpload->getClientOriginalName();
+            $dirPublic = public_path() . "/image/upload/";
+            $dirImage = $dirPublic . $barcode . "/";
+            if (!file_exists($dirImage)) {
+                mkdir($dirImage, 0777);
+                $fileUpload->move($dirImage, $getNameKendaraan);
+            }
+            else{
+                $fileUpload->move($dirImage, $getNameKendaraan);
+            }
+
+            DB::table('m_personalia')
+                ->where('dataID',$dataID)
+                ->update([
+                    'fotoKendaraan',$getNameKendaraan
+                ]);
+        }
+    }
+
+    public function uploadPemilik (Request $reqUploadPemilik){
+        $dataID = $reqUploadPemilik->dataID;
+        $fileUpload = $reqUploadPemilik->fileName;
+        $codeID = DB::table('m_personalia')
+            ->select('barcode')
+            ->where('dataID',$dataID)
+            ->first();
+        $barcode = $codeID->barcode;
+
+        if ($fileUpload <> "") {
+            $getNamaPemilik = $fileUpload->getClientOriginalName();
+            $dirPublic = public_path() . "/image/upload/";
+            $dirImage = $dirPublic . $barcode . "/";
+            if (!file_exists($dirImage)) {
+                mkdir($dirImage, 0777);
+                $fileUpload->move($dirImage, $getNamaPemilik);
+            }
+            else{
+                $fileUpload->move($dirImage, $getNamaPemilik);
+            }
+
+            DB::table('m_personalia')
+                ->where('dataID',$dataID)
+                ->update([
+                    'fotoKendaraan',$getNamaPemilik
+                ]);
+        }
+    }
 }

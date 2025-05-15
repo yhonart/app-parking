@@ -70,6 +70,15 @@
                             @else
                             <div class="col-md-4">
                                 <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
+                                <form class="form">
+                                    <div class="form-group">
+                                        <label for="updateFotoKendaraan">Upload Kendaraan</label>
+                                        <input type="file" class="custom-file-input" id="updateFotoKendaraan" name="updateFotoKendaraan">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" id="uploadKendaraan">Upload</button>
+                                    </div>
+                                </form>
                             </div>
                             @endif
 
@@ -81,7 +90,16 @@
                                 </div>
                             @else
                             <div class="col-md-4">
-                                <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
+                                <p class="bg-danger p-2 text-light"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
+                                <form class="form">
+                                    <div class="form-group">
+                                        <label for="updateFotoPemilik">Upload Kendaraan</label>
+                                        <input type="file" class="custom-file-input" id="updateFotoPemilik" name="updateFotoPemilik">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" id="uploadPemilik">Upload</button>
+                                    </div>
+                                </form>
                             </div>
                             @endif
                         </div>
@@ -104,6 +122,7 @@
                 }
             });
         });
+        
         $('#deletePemilik').on('click', function (e) {
             e.preventDefault();
             let dataID = $(this).attr('data-id');
@@ -111,6 +130,33 @@
                 type : 'get',
                 url : "{{route('listKendaraan')}}/deletePemilik/"+dataID,
                 success : function(response){                
+                    window.location.reload();
+                }
+            });
+        });
+
+        $('#uploadKendaraan').on('click', function (e) {
+            e.preventDefault();
+            let dataID = "{{$editKendaraan->dataID}}",
+                fileName = $("#updateFotoKendaraan").val();
+            $.ajax({
+                type : 'post',
+                url : "{{route('listKendaraan')}}/uploadKendaraan",
+                data : {dataID : dataID, fileName : fileName},
+                success : function(data){                
+                    window.location.reload();
+                }
+            });
+        });
+
+        $('#uploadPemilik').on('click', function (e) {
+            e.preventDefault();
+            let dataID = "{{$editKendaraan->dataID}}";
+            $.ajax({
+                type : 'post',
+                url : "{{route('listKendaraan')}}/uploadPemilik",
+                data : {dataID : dataID, fileName : fileName},
+                success : function(data){                
                     window.location.reload();
                 }
             });
