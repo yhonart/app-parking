@@ -181,4 +181,24 @@ class regKendaraanController extends Controller
                 ]);
         }
     }
+
+    public function postEditDataKendaraan (Request $reqUpdateData){
+        $dataID = $reqUpdateData->idUpdateData;
+        $pemilik = $reqUpdateData->pemilik;
+        $nopol = $reqUpdateData->nopol;
+        $manufacture = $reqUpdateData->manufaktur;
+        $type = $reqUpdateData->typeKendaraan;
+
+        if ($pemilik <> "" || $nopol <> "" || $manufacture <> "" || $type <> "") {
+            DB::table('m_personalia')
+                    ->where('dataID',$dataID)
+                    ->update([
+                        'namaPemilik'=>$pemilik,
+                        'nopol'=>$nopol,
+                        'manufaktur'=>$manufacture,
+                        'type'=>$type,
+                    ]);
+        }
+
+    }
 }

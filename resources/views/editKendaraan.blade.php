@@ -19,6 +19,7 @@
                 <div class="card card-primary">                    
                     <div class="card-body table-responsive">                        
                         <form id="formEditKendaraan" class="form-horizontal" autocomplete="off">
+                            <input type="hidden" name="idUpdateData" id="idUpdateData" value="{{$editKendaraan->dataID}}">
                             <div class="row form-group">
                                 <label for="" class="col-md-4 col-form-label">Kode <span class=" text-danger">*</span></label>
                                 <div class="col-md-8">
@@ -56,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-sm">Simpan</button>
+                                <button type="submit" class="btn btn-success btn-sm" id="btnEditDataKendaraan">Simpan</button>
                             </div>
                         </form>
                         <hr>
@@ -91,9 +92,9 @@
                             @else
                             <div class="col-md-4">
                                 <p class="bg-danger p-2 text-light"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
-                                <form class="form" enctype="multipart/form-data">
+                                <form class="form-horizontal" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="updateFotoPemilik">Upload Kendaraan</label>
+                                        <label for="updateFotoPemilik">Upload Pemilik Kendaraan</label>
                                         <input type="file" class="custom-file-input" id="updateFotoPemilik" name="updateFotoPemilik">
                                     </div>
                                     <div class="form-group">
@@ -166,6 +167,23 @@
                     window.location.reload();
                 }
             });
+        });
+        $("form#formEditKendaraan").submit(function(event){
+            event.preventDefault();
+            $("#btnEditDataKendaraan").fadeOut("slow");
+             $.ajax({
+                url: "{{route('regKendaraan')}}/postEditDataKendaraan",
+                type: 'POST',
+                data: new FormData(this),
+                async: true,
+                cache: true,
+                contentType: false,
+                processData: false,
+                success: function (data) {                    
+                    window.location.reload();                    
+                }
+            });
+            return false;
         });
     });
 </script>
