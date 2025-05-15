@@ -124,7 +124,7 @@ class regKendaraanController extends Controller
     }
 
     public function uploadKendaraan (Request $reqFileUpload){
-        $dataID = $reqFileUpload->dataID;
+        $dataID = $reqFileUpload->idDataUpload1;
         $fileUpload = $reqFileUpload->fileName;
         $codeID = DB::table('m_personalia')
             ->select('barcode')
@@ -153,7 +153,7 @@ class regKendaraanController extends Controller
     }
 
     public function uploadPemilik (Request $reqUploadPemilik){
-        $dataID = $reqUploadPemilik->dataID;
+        $dataID = $reqUploadPemilik->idDataUpload2;
         $fileUpload = $reqUploadPemilik->fileNamePemilik;
         echo $fileUpload;
         $codeID = DB::table('m_personalia')

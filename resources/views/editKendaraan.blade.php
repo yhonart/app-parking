@@ -71,7 +71,8 @@
                             @else
                             <div class="col-md-4">
                                 <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
-                                <form class="form" enctype="multipart/form-data">
+                                <form class="form" enctype="multipart/form-data" id="formUploadKendaraan">
+                                    <input type="hidden" name="idDataUpload1" id="idDataUpload1" value="{{$editKendaraan->dataID}}">
                                     <div class="form-group">
                                         <label for="updateFotoKendaraan">Upload Kendaraan</label>
                                         <input type="file" class="custom-file-input" id="updateFotoKendaraan" name="updateFotoKendaraan">
@@ -92,7 +93,8 @@
                             @else
                             <div class="col-md-4">
                                 <p class="bg-danger p-2 text-light"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
-                                <form class="form-horizontal" enctype="multipart/form-data">
+                                <form class="form-horizontal" enctype="multipart/form-data" id="formUploadPemilik">
+                                    <input type="hidden" name="idDataUpload2" id="idDataUpload2" value="{{$editKendaraan->dataID}}">
                                     <div class="form-group">
                                         <label for="updateFotoPemilik">Upload Pemilik Kendaraan</label>
                                         <input type="file" class="custom-file-input" id="updateFotoPemilik" name="updateFotoPemilik">
@@ -140,34 +142,42 @@
                 }
             });
         });
-
-        $('#uploadKendaraan').on('click', function (e) {
-            e.preventDefault();
-            let dataID = "{{$editKendaraan->dataID}}",
-                fileName = $("#updateFotoKendaraan").val();
-            $.ajax({
-                type : 'post',
-                url : "{{route('listKendaraan')}}/uploadKendaraan",
-                data : {dataID : dataID, fileName : fileName},
-                success : function(data){                
-                    window.location.reload();
+        $("form#formUploadKendaraan").submit(function(event){
+            event.preventDefault();
+            $("#btnEditDataKendaraan").fadeOut("slow");
+             $.ajax({
+                url: "{{route('listKendaraan')}}/uploadKendaraan",
+                type: 'POST',
+                data: new FormData(this),
+                async: true,
+                cache: true,
+                contentType: false,
+                processData: false,
+                success: function (data) {                    
+                    window.location.reload();                    
                 }
             });
-        });
-
-        $('#uploadPemilik').on('click', function (e) {
-            e.preventDefault();
-            let dataID = "{{$editKendaraan->dataID}}",
-                fileNamePemilik = $("#updateFotoPemilik").val();
-            $.ajax({
-                type : 'post',
-                url : "{{route('listKendaraan')}}/uploadPemilik",
-                data : {dataID : dataID, fileNamePemilik : fileNamePemilik},
-                success : function(data){                
-                    window.location.reload();
+            return false;
+        });        
+        $("form#formUploadUpload").submit(function(event){
+            event.preventDefault();
+            $("#btnEditDataKendaraan").fadeOut("slow");
+             $.ajax({
+                url: "{{route('listKendaraan')}}/uploadPemilik",
+                type: 'POST',
+                data: new FormData(this),
+                async: true,
+                cache: true,
+                contentType: false,
+                processData: false,
+                success: function (data) {                    
+                    window.location.reload();                    
                 }
             });
-        });
+            return false;
+        });        
+
+        
         $("form#formEditKendaraan").submit(function(event){
             event.preventDefault();
             $("#btnEditDataKendaraan").fadeOut("slow");
