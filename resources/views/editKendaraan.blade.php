@@ -158,7 +158,6 @@
             e.preventDefault();
             let dataID = "{{$editKendaraan->dataID}}",
                 fileNamePemilik = $("#updateFotoPemilik").val();
-                alert(fileNamePemilik);
             $.ajax({
                 type : 'post',
                 url : "{{route('listKendaraan')}}/uploadPemilik",
