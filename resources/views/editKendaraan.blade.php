@@ -70,7 +70,7 @@
                             @else
                             <div class="col-md-4">
                                 <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
-                                <form class="form">
+                                <form class="form" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="updateFotoKendaraan">Upload Kendaraan</label>
                                         <input type="file" class="custom-file-input" id="updateFotoKendaraan" name="updateFotoKendaraan">
@@ -91,7 +91,7 @@
                             @else
                             <div class="col-md-4">
                                 <p class="bg-danger p-2 text-light"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
-                                <form class="form">
+                                <form class="form" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="updateFotoPemilik">Upload Kendaraan</label>
                                         <input type="file" class="custom-file-input" id="updateFotoPemilik" name="updateFotoPemilik">
@@ -158,6 +158,7 @@
             e.preventDefault();
             let dataID = "{{$editKendaraan->dataID}}",
                 fileNamePemilik = $("#updateFotoPemilik").val();
+                alert(fileNamePemilik);
             $.ajax({
                 type : 'post',
                 url : "{{route('listKendaraan')}}/uploadPemilik",
