@@ -60,22 +60,29 @@
                             </div>
                         </form>
                         <hr>
-                        @if($editKendaraan->fotoKendaraan <> "" OR $editKendaraan->fotoPemilik <> "")
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoKendaraan}}" alt="" srcset="" width="150">
-                                    <hr>
-                                    <button class="btn btn-danger btn-sm" id="deleteKendaraan" data-id="{{$editKendaraan->dataID}}">Hapus Kendaraan</button>
-                                </div>
+                        <div class="row">
+                            @if($editKendaraan->fotoKendaraan <> "")
+                            <div class="col-md-4">
+                                <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoKendaraan}}" alt="" srcset="" width="150">
+                                <hr>
+                                <button class="btn btn-danger btn-sm" id="deleteKendaraan" data-id="{{$editKendaraan->dataID}}">Hapus Kendaraan</button>
+                            </div>
+                            else
+                            <div class="col-md-4">
+                                <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
+                            </div>
+                            @endif
+
+                            @if($editKendaraan->fotoPemilik <> "")
                                 <div class="col-md-4">
                                     <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoPemilik}}" alt="" srcset="" width="150"> 
                                     <hr>
                                     <button class="btn btn-danger btn-sm" id="deletePemilik" data-id="{{$editKendaraan->dataID}}">Hapus Foto Pemilik</button>
                                 </div>
-                            </div>
-                        @else
-                            <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
-                        @endif
+                            @else
+                                <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
