@@ -22,7 +22,7 @@
                             <div class="row form-group">
                                 <label for="" class="col-md-4 col-form-label">Kode <span class=" text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="editKodeKendaraan" id="editKodeKendaraan" class="form-control form-control-sm" value="{{$editKendaraan->barcode}}" disabled>
+                                    <input type="text" name="editKodeKendaraan" id="editKodeKendaraan" class="form-control form-control-sm" value="{{$editKendaraan->kodeKendaraan}}" disabled>
                                 </div>
                             </div>
                             <div class="row form-group">
@@ -55,7 +55,27 @@
                                     <input type="text" name="typeKendaraan" id="typeKendaraan" class="form-control form-control-sm" value="{{$editKendaraan->type}}">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-sm">Simpan</button>
+                            </div>
                         </form>
+                        <hr>
+                        @if($editKendaraan->fotoKendaraan <> "" OR $editKendaraan->fotoPemilik <> "")
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoKendaraan}}}}" alt="" srcset="">
+                                    <br>
+                                    <button class="btn btn-danger btn-sm" id="deleteKendaraan" data-id="{{$dataID}}">Hapus Kendaraan</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoPemilik}}}}" alt="" srcset="">
+                                    <br>
+                                    <button class="btn btn-danger btn-sm" id="deletePemilik" data-id="{{$dataID}}">Hapus Foto Pemilik</button>
+                                </div>
+                            </div>
+                        @else
+                            <p class="bg-danger p-2"><b>Tidak Ada Gambar Yang Di Masukkan</b></p>
+                        @endif
                     </div>
                 </div>
             </div>
