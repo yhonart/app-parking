@@ -22,6 +22,8 @@ Route::post('/regKendaraan/posRegKendaraan', [regKendaraanController::class, 'po
 Route::get('/listKendaraan', [regKendaraanController::class, 'listKendaraan'])->name('listKendaraan');
 Route::get('/listKendaraan/view/{dataID}', [regKendaraanController::class, 'view']);
 Route::get('/listKendaraan/edit/{dataID}', [regKendaraanController::class, 'edit']);
+Route::get('/listKendaraan/deleteKendaraan/{dataID}', [regKendaraanController::class, 'deleteKendaraan']);
+Route::get('/listKendaraan/deletePemilik/{dataID}', [regKendaraanController::class, 'deletePemilik']);
 
 Route::middleware('auth')->group(function (){
     Route::get('/dataKendaraan', [HomeController::class, 'index'])->name('dataKendaraan');    

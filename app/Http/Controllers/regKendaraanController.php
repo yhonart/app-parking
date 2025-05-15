@@ -23,7 +23,12 @@ class regKendaraanController extends Controller
         else {
             $number = $countKode + 1;
         }
-        $numberQrCode = $kode."".sprintf("%03d", $number);
+        if ($kode == "IRT") {
+            $numberQrCode = $kode."".sprintf("%03d", $number);
+        }
+        else {
+            $numberQrCode = $kode."".sprintf("%02d", $number);
+        }
         return response()->json([
             'qrCode' =>$numberQrCode,
         ]); 
@@ -101,5 +106,20 @@ class regKendaraanController extends Controller
             ->first();
 
         return view('editKendaraan', compact('editKendaraan'));
+    }
+
+    public function deleteKendaraan($dataID){
+        DB::table('m_personalia')
+            ->where('dataID',$dataID)
+            ->update([
+                'fotoKendaraan'=>''
+            ]);
+    }
+    public function deletePemilik($dataID){
+        DB::table('m_personalia')
+            ->where('dataID',$dataID)
+            ->update([
+                'fotoPemilik'=>''
+            ]);
     }
 }

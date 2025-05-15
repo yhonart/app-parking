@@ -27,7 +27,7 @@
                                 <div class="col-md-8">
                                     <select name="kode" id="kode" class=" form-control form-control-sm">
                                         <option value="0">- Pilih Kode -</option>
-                                        <option value="BOD">BOD.</option>
+                                        <option value="IRT">IRT.</option>
                                         <option value="EMP">EMP.</option>
                                         <option value="CON">CON.</option>
                                         <option value="MTC">MTC.</option>
