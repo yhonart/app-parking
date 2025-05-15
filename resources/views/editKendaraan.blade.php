@@ -161,7 +161,7 @@
             $.ajax({
                 type : 'post',
                 url : "{{route('listKendaraan')}}/uploadPemilik",
-                data : {dataID : dataID, fileName : fileNamePemilik},
+                data : {dataID : dataID, fileNamePemilik : fileNamePemilik},
                 success : function(data){                
                     window.location.reload();
                 }
