@@ -155,12 +155,13 @@ class regKendaraanController extends Controller
     public function uploadPemilik (Request $reqUploadPemilik){
         $dataID = $reqUploadPemilik->idDataUpload2;
         $fileUpload = $reqUploadPemilik->fotoPemilik;
+        echo $fileUpload;
         $codeID = DB::table('m_personalia')
             ->select('barcode')
             ->where('dataID',$dataID)
             ->first();
         $barcode = $codeID->barcode;
-
+        echo $barcode;
         if ($fileUpload <> "") {
             $getNamaPemilik = $fileUpload->getClientOriginalName();
             $dirPublic = public_path() . "/image/upload/";
