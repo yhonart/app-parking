@@ -63,12 +63,12 @@
                         @if($editKendaraan->fotoKendaraan <> "" OR $editKendaraan->fotoPemilik <> "")
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoKendaraan}}}}" alt="" srcset="">
+                                    <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoKendaraan}}" alt="" srcset="" width="150">
                                     <br>
                                     <button class="btn btn-danger btn-sm" id="deleteKendaraan" data-id="{{$editKendaraan->dataID}}">Hapus Kendaraan</button>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoPemilik}}}}" alt="" srcset="">
+                                    <img src="{{asset('public/image/upload')}}/{{$editKendaraan->barcode}}/{{$editKendaraan->fotoPemilik}}" alt="" srcset="" width="150"> 
                                     <br>
                                     <button class="btn btn-danger btn-sm" id="deletePemilik" data-id="{{$editKendaraan->dataID}}">Hapus Foto Pemilik</button>
                                 </div>
