@@ -24,10 +24,10 @@ class regKendaraanController extends Controller
             $number = $countKode + 1;
         }
         if ($kode == "IRT") {
-            $numberQrCode = $kode."".sprintf("%03d", $number);
+            $numberQrCode = $kode."".sprintf("%02d", $number);
         }
         else {
-            $numberQrCode = $kode."".sprintf("%02d", $number);
+            $numberQrCode = $kode."".sprintf("%03d", $number);
         }
         return response()->json([
             'qrCode' =>$numberQrCode,
