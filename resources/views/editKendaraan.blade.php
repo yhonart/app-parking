@@ -154,7 +154,7 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {                    
-                    window.location.reload();                    
+                    // window.location.reload();                    
                 }
             });
             return false;
