@@ -175,8 +175,7 @@
                 }
             });
             return false;
-        });        
-
+        });      
         
         $("form#formEditKendaraan").submit(function(event){
             event.preventDefault();
