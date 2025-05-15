@@ -18,6 +18,7 @@ Route::get('/home/logScan', [gatePassController::class, 'logScan']);
 Route::get('/regKendaraan', [regKendaraanController::class, 'regKendaraan'])->name('regKendaraan');
 Route::get('/regKendaraan/getNumberQr/{kode}', [regKendaraanController::class, 'getNumberQr']);
 Route::post('/regKendaraan/posRegKendaraan', [regKendaraanController::class, 'posRegKendaraan']);
+Route::post('/regKendaraan/postEditDataKendaraan', [regKendaraanController::class, 'postEditDataKendaraan']);
 
 Route::get('/listKendaraan', [regKendaraanController::class, 'listKendaraan'])->name('listKendaraan');
 Route::get('/listKendaraan/view/{dataID}', [regKendaraanController::class, 'view']);
@@ -26,7 +27,6 @@ Route::get('/listKendaraan/deleteKendaraan/{dataID}', [regKendaraanController::c
 Route::get('/listKendaraan/deletePemilik/{dataID}', [regKendaraanController::class, 'deletePemilik']);
 Route::post('/listKendaraan/uploadKendaraan', [regKendaraanController::class, 'uploadKendaraan']);
 Route::post('/listKendaraan/uploadPemilik', [regKendaraanController::class, 'uploadPemilik']);
-Route::post('/listKendaraan/postEditDataKendaraan', [regKendaraanController::class, 'postEditDataKendaraan']);
 
 Route::middleware('auth')->group(function (){
     Route::get('/dataKendaraan', [HomeController::class, 'index'])->name('dataKendaraan');    
