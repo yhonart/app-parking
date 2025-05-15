@@ -76,7 +76,7 @@
                                         <input type="file" class="custom-file-input" id="updateFotoKendaraan" name="updateFotoKendaraan">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="uploadKendaraan">Upload</button>
+                                        <button type="submit" id="uploadKendaraan" class="btn btn-md btn-success">Upload</button>
                                     </div>
                                 </form>
                             </div>
@@ -97,7 +97,7 @@
                                         <input type="file" class="custom-file-input" id="updateFotoPemilik" name="updateFotoPemilik">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" id="uploadPemilik">Upload</button>
+                                        <button type="submit" id="uploadPemilik" class="btn btn-md btn-success">Upload</button>
                                     </div>
                                 </form>
                             </div>
@@ -122,7 +122,7 @@
                 }
             });
         });
-        
+
         $('#deletePemilik').on('click', function (e) {
             e.preventDefault();
             let dataID = $(this).attr('data-id');
@@ -151,11 +151,12 @@
 
         $('#uploadPemilik').on('click', function (e) {
             e.preventDefault();
-            let dataID = "{{$editKendaraan->dataID}}";
+            let dataID = "{{$editKendaraan->dataID}}",
+                fileNamePemilik = $("#updateFotoPemilik").val();
             $.ajax({
                 type : 'post',
                 url : "{{route('listKendaraan')}}/uploadPemilik",
-                data : {dataID : dataID, fileName : fileName},
+                data : {dataID : dataID, fileName : fileNamePemilik},
                 success : function(data){                
                     window.location.reload();
                 }
