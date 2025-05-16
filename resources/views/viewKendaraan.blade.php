@@ -16,7 +16,7 @@
     <div class="container">   
         <div class="row mb-2">
             <div class="col-md-4">
-                <a href="{{route(listKendaraan)}}" class="btn btn-sm btn-primary">List Data Kendaraan</a>
+                <a href="{{route('listKendaraan')}}" class="btn btn-sm btn-primary">List Data Kendaraan</a>
             </div>
         </div>     
         <div class="row">
