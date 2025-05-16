@@ -17,14 +17,16 @@
 
     <link rel="stylesheet" href="{{asset('public/plugins/alertifyjs/css/alertify.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/plugins/alertifyjs/css/themes/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/plugins/DataTables/datatables.min.css')}}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/8.2.1/adapter.min.js"></script>
     <script src="https://unpkg.com/html5-qrcode"></script>
-    <script src="{{ asset('public/plugins/jquery.min.js') }}" type="text/javascript"></script>
-    
-    <script src="{{ asset('public/plugins/alertifyjs/alertify.min.js') }}" type="text/javascript"></script>    
+    <script src="{{asset('public/plugins/jquery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('public/plugins/alertifyjs/alertify.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('public/plugins/DataTables/datatables.min.js')}}"></script>
     <!-- Scripts -->
     
 </head>

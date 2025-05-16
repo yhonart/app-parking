@@ -26,7 +26,7 @@
                         <h3 class="card-title">Daftar Kendaraan</h3>
                     </div>
                     <div class="card-body table-responsive">                        
-                        <table class=" table table-sm table-valign-middle text-xs table-striped">
+                        <table class=" table table-sm table-valign-middle text-xs table-striped" id="tableListKendaraan">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -64,4 +64,18 @@
         </div>
     </div>
 </div>
+<script>
+    new DataTable('#tableListKendaraan', {
+        info: true,
+        ordering: true,
+        paging: true,
+        layout: {
+            topStart: {
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ]
+            }
+        }
+    });
+</script>
 @endsection
