@@ -7,13 +7,18 @@
     <div class="container">
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="m-0"> </h1>
+            
         </div><!-- /.col -->        
     </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
 <div class="content">
-    <div class="container">        
+    <div class="container">   
+        <div class="row mb-2">
+            <div class="col-md-4">
+                <a href="{{route(/listKendaraan)}}" class="btn btn-sm btn-primary">List Data Kendaraan</a>
+            </div>
+        </div>     
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-primary">                    
@@ -39,27 +44,28 @@
                             <dd class="col-md-4">{{$viewKendaraan->kodeKendaraan}}</dd>
                         </dl>
                         <hr>
-                        <div class="row">
-                            <div class="col-md-12">
-                                @if($viewKendaraan->fotoKendaraan == "" || $viewKendaraan->fotoPemilik == "")
-                                    <b>⚠️ Tidak ada foto pemilik atau kendaraan yang di upload.</b>
-                                @else
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row justify-content-center">
-                                                <div class="col-md-4 text-center">
-                                                    <img src="{{asset('public/image/upload')}}/{{$viewKendaraan->barcode}}/{{$viewKendaraan->fotoKendaraan}}" alt="" srcset="" width="150"> 
-                                                    <p class="bg-primary text-center p-2 text-light">Foto Kendaraan</p>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                    <img src="{{asset('public/image/upload')}}/{{$viewKendaraan->barcode}}/{{$viewKendaraan->fotoPemilik}}" alt="" srcset="" width="150"> 
-                                                    <p class="bg-primary text-center p-2 text-light">Foto Pemilik</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
+                        <div class="row justify-content-center">
+                            @if($viewKendaraan->fotoKendaraan == "")
+                                <div class="col-md-4 text-center">
+                                    <b>⚠️ Tidak ada foto kendaraan yang di upload.</b>
+                                </div>
+                            @else
+                                <div class="col-md-4 text-center">
+                                    <img src="{{asset('public/image/upload')}}/{{$viewKendaraan->barcode}}/{{$viewKendaraan->fotoKendaraan}}" alt="" srcset="" width="150"> 
+                                    <p class="bg-primary text-center p-2 text-light">Foto Kendaraan</p>
+                                </div>
+                            @endif
+
+                            @if($viewKendaraan->fotoPemilik == "")
+                                <div class="col-md-4 text-center">
+                                    <b>⚠️ Tidak ada foto kendaraan yang di upload.</b>
+                                </div>
+                            @else
+                                <div class="col-md-4 text-center">
+                                    <img src="{{asset('public/image/upload')}}/{{$viewKendaraan->barcode}}/{{$viewKendaraan->fotoPemilik}}" alt="" srcset="" width="150"> 
+                                    <p class="bg-primary text-center p-2 text-light">Foto Pemilik</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
